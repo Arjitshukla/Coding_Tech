@@ -1,3 +1,0 @@
-superuser:
-user name : DreamCODE
-password : dreamcode@123
