@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  <title>{% block title%} {% endblock %}</title>
+  {% block style %}{% endblock style %}
+</head>
+
+<body>
+  <header class="header" id="home">
+    <nav>
+      <div class="nav__bar">
+        <div class="nav__logo ">
+          <img style="max-width: 40px;" src="{% static 'assets/logo.png' %}" alt="logo" />
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/courses/">courses</a></li>
+        <li class="nav__logo">
+          <a href="/">
+            <img src="{% static 'assets/logo.png' %}" alt="logo" />
+          </a>
+        </li>
+        <li><a href="/blog/">Blogs</a></li>
+        <li><a href="/contact/">Contact</a></li>
+
+        {% if not request.user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fa-solid fa-user " style="color: #1f5120;"></i> New User ?
+          </a>
+          <ul class="dropdown-menu mt-4">
+            <li><a class="dropdown-item text-black" href="/login/"> Login </a></li>
+            <li><a class="dropdown-item text-black" href="/signup/"> Sign Up</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle text-danger" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fa-solid fa-user" style="color: #42f532;"></i> {{request.user}}
+          </a>
+          <ul class="dropdown-menu mt-4 border-top-0 border-primary">
+            <li><a class="dropdown-item text-black" href="/logout/">Log Out</a></li>
+          </ul>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    {% block header %}
+    {% endblock header %}
+  </header>
+  {% block messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong></strong> {{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  {% endblock messages %}
+  {% block body %}{% endblock body %}
+  <section class="instagram__container">
+    <div class="instagram__flex">
+      <img src=" {% static 'assets/HTML1.jpg' %}" alt="instagram" />
+      <img src="{% static 'assets/htmlcss7.png' %}" alt="instagram" />
+      <img src="{% static 'assets/js2.jpeg' %}" alt="instagram" />
+      <img src="{% static 'assets/python3.png' %}" alt="instagram" />
+      <img src="{% static 'assets/bootrap5.png' %}" alt="instagram" />
+      <img src="{% static 'assets/django4.png' %}" alt="instagram" />
+      <img src="{% static 'assets/APIs.png' %}" alt="instagram" />
+      <img style='max-width:200px;max-height:200px' src="{% static 'assets/logo degine.jpeg' %}" alt="instagram" />
+      <img src="{% static 'assets/instagram-10.jpg' %}" alt="instagram" />
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="section__container footer__container">
+      <div class="footer__col">
+        <img src="{% static 'assets/logo.png' %}" alt="logo" />
+        <div class="footer__socials">
+          <a href="https://www.facebook.com/profile.php?id=100077103085265&locale=hi_IN"><i
+              class="fa-brands fa-facebook"></i></a>
+          <a href="https://github.com/Arjitshukla"><i class="fa-brands fa-github"></i></i></a>
+          <a href="https://www.instagram.com/__imarjit/"><i class="fa-brands fa-instagram"></i></i></a>
+          <a href="https://www.linkedin.com/in/arjit-shukla-484911275/"><i
+              class="fa-brands fa-linkedin"></i></i></a><br>
+        </div>
+        <div class="footer__bar">
+          Copyright © 2024 . All rights reserved.
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Newsletter Signup</h4>
+        <p>Sign Up to get the latest news.</p>
+        <form action="/">
+          <input type="text" placeholder="Your Email Address" />
+          <bbutton class="btn">OK</bbutton>
+        </form>
+      </div>
+      <div class="footer__col">
+        <h4>Contact Us</h4>
+        <p><span><i class="ri-map-pin-2-fill"></i></span> indore,bholaram </p>
+        <p> <span><i class="ri-phone-fill"></i></span> +91 877080 0249</p>
+        <p><span><i class="ri-mail-fill"></i></span> arjitshukla286@gmail.com</p>
+      </div>
+    </div>
+    <a href="#home" class="footer__bar__link"><i class="ri-arrow-up-s-line"></i><span>TOP</span></a>
+  </footer>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script src="{% static 'js/main.js'%}"></script>
+</body>
+
+</html>

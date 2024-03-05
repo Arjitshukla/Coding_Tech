@@ -1,0 +1,126 @@
+{% extends 'htmlfile/base.html' %}
+{% block title%} About page | Arjitech{% endblock %}
+{% block body %}
+{% load static %}
+{% for items in alltext %}
+<h2 class="section__header">About Arjitech</h2>
+<div class="container-fluid mt-5 ">
+    <div class="row">
+        <div class="col-md-8" style="padding-right: 0px; padding-left: 20px;">
+            <div class="section-left" style="width: 80%; float: left;">
+                <h1 style="color:black;">{{items.title}}</h1>
+                <p>{{items.Content1}}</p>
+                <div class="container mb-3">
+                    <img src="/media/{{items.img1}}" class="img-fluid" alt="...">
+                </div>
+                <p>{{items.Content2}}</p>
+                <h3>{{items.head0}}</h3>
+                <p>{{items.para0}}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="col-md-4" style="padding-left: 5;">
+            <div class="section-right" style="width: 60%; float: left;">
+                <div class="section_sourcecode">
+                    <div class="sourcecode">
+                        <h5>Sourcecode</h5>
+                        <ol class="list-group list-group-numbered">
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold"><a href="courses/webtemplates/">Web Templates</a></div>
+                                    Future degine of site.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">2</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold"><a href="courses/webtemplates/">Cards</a></div>
+                                    Modern degine list items.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">5</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold"><a href="courses/webtemplates/">navbar</a></div>
+                                    New degine navbar list item.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">3</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-start">
+                                <div class="ms-2 me-auto">
+                                    <div class="fw-bold"><a href="courses/webtemplates/">Forms</a></div>
+                                    Forms for list item.
+                                </div>
+                                <span class="badge bg-primary rounded-pill">3</span>
+                            </li>
+                        </ol>
+                    </div><br>
+                    <a href="http:/course/">Explore More</a>
+                    <hr>
+                </div>
+                <div class="section_moreblogs">
+                    <h5>More blogs</h5>
+                    <ol class="list-group list-group-numbered">
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold text-success">New Coding Updates</div>
+                                Content for list item
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold text-success">Sports</div>
+                                Content for list item
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                            <div class="ms-2 me-auto">
+                                <div class="fw-bold text-success">2024 Important</div>
+                                Content for list item
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+                <hr>
+                <div class="section_contactus">
+                    <h5>Contact us❤️</h5>
+                    <p> Have questions or feedback? Contact our dedicated support team for prompt assistance!</p>
+                    <a href="http:/contact/">Join Us :</a>
+                    <div class="footer__socials">
+                        <a href="https://www.facebook.com/profile.php?id=100077103085265&locale=hi_IN"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="https://github.com/Arjitshukla"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.instagram.com/__imarjit/"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/arjit-shukla-484911275/"><i
+                                class="fa-brands fa-linkedin"></i></a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section__container banner__container" id="team">
+    <h2 class="section__header">OUR Services</h2>
+    <div class="banner__strip">
+        <div class="banner__strip__card">
+            <div>Frontend<br />Developer</div>
+        </div>
+        <div class="banner__strip__card">
+            <div>Backend<br />Developer</div>
+        </div>
+        <div class="banner__strip__card">
+            <div>Logo<br />Design</div>
+        </div>
+        <div class="banner__strip__card">
+            <div>My SQL<br />Database</div>
+        </div>
+        <div class="banner__strip__card">
+            <div>API<br />Modification</div>
+        </div>
+        <div class="banner__strip__card">
+            <div>User<br />Family</div>
+        </div>
+    </div>
+</section>
+{% endblock%}

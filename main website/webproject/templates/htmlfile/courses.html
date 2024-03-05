@@ -1,0 +1,64 @@
+{% extends 'htmlfile/base.html' %}
+{% block title%} courses page-sourcecode,templates,python{% endblock %}
+
+{% block body %}
+{% load static %}
+<section class="section__container courses__container" id="courses">
+  <h2 class="section__header">Courses</h2>
+  <div class="courses__grid">
+    {% for course in allCourse %}
+    <div class="courses__card">
+      <img style='max-width:400px;max-height:250px' src="/media/{{course.course_image}}" alt="courses" />
+      <div class="courses__content">
+        <h5>{{course.time}}</h5>
+        <h4>{{course.title}}</h4>
+        <p>
+          {{course.Content|slice:"90"}}
+        </p>
+
+        {% if request.user.is_authenticated %}
+        <a href="{{webtemp.sourcecode}}" download>
+          <button type="button" class="btn btn-primary border border-success mb-1 btn-sm"><i
+              class="fa-solid fa-download"> Source code</i></button>
+        </a>
+        {% else %}
+      </div>
+      <button type="button" class="btn btn-primary border border-success mb-1 btn-sm"><i class="fa-solid fa-lock">
+          Source code</i></button>
+      <p class="text-danger">Please <a href="/signup/">sign up</a> to get -SOURCECODE .</p>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+</section>
+<!-- templates  -->
+<section class="section__container courses__container" id="courses">
+  <h2 class="section__header">Templates</h2>
+  <div class="courses__grid">
+    {% for webtemp in allweb %}
+    <div class="courses__card">
+      <img style='max-width:400px;max-height:230px' src="/media/{{webtemp.web_image}}" alt="courses" />
+      <div class="courses__content">
+        <h5>{{webtemp.time}}</h5>
+        <h4>{{webtemp.title}}</h4>
+        <h6>{{webtemp.Content|slice:"100"}}
+        </h6>
+        {% if request.user.is_authenticated %}
+        <div>
+          <a href="{{webtemp.sourcecode}}" download>
+            <button class="btn"><i class="fa-solid fa-download">Source code</i></button>
+          </a>
+        </div>
+        {% else %}
+        <script>window.location.href = "/signup/";</script>
+        <p class="text-danger">Please <a href="/signup/">sign up</a> to continue.</p>
+        {% endif %}
+
+
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
